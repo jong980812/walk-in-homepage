@@ -869,3 +869,109 @@ body.is-focused .hint { display: none; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
 }
+
+/* ============================================================
+   Lobby in the homepage's look (jong980812.github.io): warm ivory wall, one sage accent,
+   Plus Jakarta Sans / Source Sans 3 / IBM Plex Mono, black text. Only the entrance changes;
+   the office inside keeps its own palette, so everything here is scoped to the lobby
+   and to the top bar while you are still outside.
+   ============================================================ */
+
+.lobby, body:not(.inside) .topbar {
+    --sage: #5F8270;
+    --surface: #FFFDF8;
+    --ink: #24201C;
+    --ink-soft: #3B352E;
+    --ink-faint: #5C554B;
+    --line: #E6DFD2;
+    --heading: #24201C;
+    --strong: #24201C;
+    --navy-500: #5F8270;
+    --blue-50: #F3EEE4;
+    --blue-100: #E6DFD2;
+    --glass: rgba(255, 253, 248, .85);
+    --wall: #F6F1E6;
+    --wall-light: radial-gradient(ellipse at 50% 38%, transparent 50%, rgba(92, 78, 52, .07) 100%);
+    --frame: #FFFDF8;
+    --frame-line: #D8CFBE;
+    --floor-a: #E1CDAA;
+    --floor-b: #D2B990;
+    --accent: #C9A15A;
+    --shadow-md: 0 6px 18px rgba(60, 48, 30, .09);
+    --shadow-lg: 0 14px 36px rgba(60, 48, 30, .11);
+    font-family: 'Source Sans 3', -apple-system, sans-serif;
+}
+body[data-theme="night"] .lobby, body[data-theme="night"]:not(.inside) .topbar {
+    --sage: #A8C4B2;
+    --surface: #2A2621;
+    --ink: #F3EDE3;
+    --ink-soft: #E2DACD;
+    --ink-faint: #C9BFB0;
+    --line: #3D3730;
+    --heading: #F7F2E9;
+    --strong: #F7F2E9;
+    --navy-500: #A8C4B2;
+    --blue-50: #332E28;
+    --blue-100: #453E35;
+    --glass: rgba(42, 38, 33, .85);
+    --wall: #1F1C18;
+    --wall-light: radial-gradient(ellipse 34% 62% at 50% 48%, rgba(255, 200, 130, .16), transparent 100%),
+                  radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(10, 8, 5, .45) 100%);
+    --frame: #E9E1D2;
+    --frame-line: #14120F;
+    --floor-a: #6E5A41;
+    --floor-b: #554430;
+    --shadow-lg: 0 14px 36px rgba(0, 0, 0, .45);
+}
+body:not(.inside) { background: var(--page-bg); }
+
+body:not(.inside) .topbar .brand { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--ink); }
+body:not(.inside) .topbar .brand span { color: var(--ink-faint); }
+body:not(.inside) .topbar :is(.clock, .brand) { background: var(--glass); border-color: var(--line); color: var(--ink); }
+
+.lobby :is(h1, h2, h3) { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--heading); }
+.lobby .eyebrow, .lobby .board-sub { font-family: 'IBM Plex Mono', monospace; font-weight: 500; letter-spacing: .08em; color: var(--ink-faint); }
+.lobby :is(.plate, .board) { border-radius: 4px; box-shadow: var(--shadow-lg); }
+.lobby .plate-head img { border-radius: 4px; width: 64px; height: 80px; box-shadow: none; }
+.lobby .plate-role, .lobby .plate-affil { color: var(--ink); }
+.lobby .plate-role { font-weight: 700; }
+.lobby .plate-tagline { font-size: 16px; line-height: 1.55; color: var(--ink); }
+.lobby .plate-keywords { margin-top: 10px; font: 15px/1.45 'Times New Roman', Times, serif; color: var(--ink); }
+.lobby .plate-keywords em { font-weight: 700; }
+.lobby .plate-links { gap: 4px 16px; margin-top: 16px; }
+.lobby .plate-links a {
+    font-size: 15px; font-weight: 600; color: var(--ink);
+    text-decoration: underline; text-decoration-color: var(--sage);
+    text-decoration-thickness: 1.5px; text-underline-offset: 4px;
+}
+.lobby .plate-links a:hover { color: var(--sage); }
+.lobby a { color: var(--sage); }
+
+.lobby .note { border-radius: 4px; background: var(--blue-50); border-color: var(--line); }
+.lobby .note h2 { display: flex; align-items: baseline; gap: 8px; margin: 0 0 6px; font-size: 16px; }
+.lobby .note h2 .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 3px rgba(95, 130, 112, .2); transform: translateY(-1px); }
+.lobby .note p { color: var(--ink); }
+.lobby .board-news time { font-family: 'IBM Plex Mono', monospace; font-weight: 500; color: var(--ink); }
+.lobby .board-news li:first-child time { color: var(--sage); }
+.lobby .board-directory button { color: var(--ink); }
+.lobby .num { background: var(--sage); }
+
+/* the door: painted sage, ivory sign, brass knob */
+.lobby .door-leaf {
+    background: linear-gradient(165deg, #93AE9C 0%, #7A9886 45%, #6A8A77 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1), inset -10px 0 24px rgba(40, 52, 44, .22);
+}
+.lobby .door-sign { border-radius: 3px; background: #FFFDF8; box-shadow: 0 3px 10px rgba(40, 36, 30, .25); }
+.lobby .door-sign b { font-family: 'Plus Jakarta Sans', sans-serif; color: #24201C; }
+.lobby .door-sign small { font-family: 'IBM Plex Mono', monospace; font-weight: 500; color: #5F8270; }
+.lobby .door-inset { background: rgba(255, 255, 255, .07); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); }
+.lobby .door-knob { background: radial-gradient(circle at 35% 30%, #F7E2B0, #C9A15A 55%, #8E6E33); }
+.lobby .door-cta { background: #24201C; color: #FFFDF8; font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
+.lobby .door:hover .door-cta { background: #5F8270; }
+body[data-theme="night"] .lobby .door-cta { background: #F3EDE3; color: #24201C; }
+
+/* iOS WebKit can ignore font-weight on Google's variable fonts; set the axis explicitly */
+.lobby, body:not(.inside) .topbar { font-variation-settings: "wght" 400; }
+.lobby :is(h1, h2, h3, b, strong, .plate-role, .plate-keywords em, .door-sign b), body:not(.inside) .topbar .brand { font-variation-settings: "wght" 700; }
+.lobby :is(.plate-links a, .door-cta, .board-directory button) { font-variation-settings: "wght" 600; }
+.lobby :is(.eyebrow, .board-sub, .board-news time, .door-sign small) { font-variation-settings: "wght" 500; }
