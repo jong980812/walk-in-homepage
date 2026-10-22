@@ -379,10 +379,10 @@ export function buildRoom({ scene, world, register, entries }) {
         const hinge = new THREE.Group();
         hinge.position.set(-0.45, 0, 0.012);
         g.add(hinge);
-        const panelMat = std(0x1f4e8c, { roughness: 0.55 });
+        const panelMat = std(0x7a9886, { roughness: 0.55 });   // sage, same as the lobby door
         add(hinge, rbox(0.9, 2.08, 0.045, 0.01), panelMat, [0.45, 1.05, 0.022]);
-        add(hinge, rbox(0.62, 0.7, 0.012, 0.006), std(0x2a5c9e, { roughness: 0.55 }), [0.45, 0.55, 0.048]);
-        add(hinge, new THREE.SphereGeometry(0.035, 16, 12), std(0xe8b931, { metalness: 0.5, roughness: 0.3 }), [0.8, 1.0, 0.07]);
+        add(hinge, rbox(0.62, 0.7, 0.012, 0.006), std(0x86a391, { roughness: 0.55 }), [0.45, 0.55, 0.048]);
+        add(hinge, new THREE.SphereGeometry(0.035, 16, 12), std(0xc9a15a, { metalness: 0.5, roughness: 0.3 }), [0.8, 1.0, 0.07]);
         add(hinge, new THREE.PlaneGeometry(0.42, 0.145), std(0xffffff, { map: signTexture() }), [0.45, 1.5, 0.046], { cast: false });
         Object.assign(door, { hinge, open: 0 });
         const entry = { def: DOOR, group: g, glow: false };

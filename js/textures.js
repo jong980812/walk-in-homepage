@@ -67,9 +67,9 @@ export function whiteboardTexture() {
         c.textAlign = 'left';
 
         const boxes = [
-            { x: 96,   color: NAVY,  n: '01', title: ['Trustworthy', 'Multimodal Video'], lines: ['vision · language · audio', 'grounded reasoning', 'fewer hallucinations'] },
-            { x: 764,  color: BLUE,  n: '02', title: ['How Models', 'Learn'],             lines: ['how they are trained', 'what they represent', 'why they succeed / fail'] },
-            { x: 1432, color: CORAL, n: '03', title: ['Video for', 'Physical AI'],        lines: ['perceive', '→ reason', '→ act in the world'] },
+            { x: 96,   color: NAVY,  n: '01', title: ['Video', 'Understanding'],     lines: ['motion · sound · language', 'answer from what happens', 'on screen'] },
+            { x: 764,  color: BLUE,  n: '02', title: ['Interpretability', ''],            lines: ['concepts, not pixels', 'what it represents', '= what it says?'] },
+            { x: 1432, color: CORAL, n: '03', title: ['Video', 'World Models'],          lines: ['learn physics by watching', '→ know what comes next', '→ then act'] },
         ];
         const bw = 520, by = 290, bh = 480;
         boxes.forEach((b, i) => {
@@ -79,7 +79,7 @@ export function whiteboardTexture() {
             c.fillStyle = b.color;
             c.font = '700 56px Caveat';
             c.fillText(b.n, b.x + 30, by + 72);
-            b.title.forEach((t, j) => { setFit(c, t, bw - 60, 76, 700, 'Caveat'); c.fillText(t, b.x + 30, by + 160 + j * 74); });
+            b.title.filter(Boolean).forEach((t, j) => { setFit(c, t, bw - 60, 76, 700, 'Caveat'); c.fillText(t, b.x + 30, by + 160 + j * 74); });
             c.fillStyle = INK;
             b.lines.forEach((t, j) => { setFit(c, `– ${t}`, bw - 60, 50, 500, 'Caveat'); c.fillText(`– ${t}`, b.x + 32, by + 336 + j * 54); });
             if (i < 2) {
@@ -100,10 +100,10 @@ export function whiteboardTexture() {
 
         c.fillStyle = NAVY;
         c.font = '700 58px Caveat';
-        c.fillText('video = our window into the physical world', 96, 900);
+        c.fillText('how does visual experience become knowledge of the world?', 96, 900);
         c.fillStyle = INK;
         c.font = '500 50px Caveat';
-        c.fillText('trustworthy → grounded · interpretable · reliable', 96, 980);
+        c.fillText('watch → understand → predict → act', 96, 980);
 
         // doodle: film strip → robot
         c.strokeStyle = NAVY;
