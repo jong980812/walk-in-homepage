@@ -975,3 +975,29 @@ body[data-theme="night"] .lobby .door-cta { background: #F3EDE3; color: #24201C;
 .lobby :is(h1, h2, h3, b, strong, .plate-role, .plate-keywords em, .door-sign b), body:not(.inside) .topbar .brand { font-variation-settings: "wght" 700; }
 .lobby :is(.plate-links a, .door-cta, .board-directory button) { font-variation-settings: "wght" 600; }
 .lobby :is(.eyebrow, .board-sub, .board-news time, .door-sign small) { font-variation-settings: "wght" 500; }
+
+/* "build your own" note at the foot of the notice board */
+.board-diy { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 14px; line-height: 1.5; }
+.board-diy p { margin: 0 0 6px; color: var(--ink); }
+.lobby .board-diy a { font-weight: 700; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+
+/* larger plate and notice board on roomy screens */
+@media (min-width: 1100px) and (min-height: 700px) {
+    .plate, .board { width: clamp(340px, 30vw, 460px); padding: 30px; }
+    .lobby .eyebrow, .lobby .board-sub { font-size: 13px; }
+    .lobby .plate-head img { width: 80px; height: 100px; }
+    .plate h1 { font-size: 34px; }
+    .lobby .plate-role, .lobby .plate-affil { font-size: 16.5px; }
+    .lobby .plate-tagline { font-size: 18px; }
+    .lobby .plate-keywords { font-size: 17px; }
+    .lobby .plate-links { margin-top: 20px; }
+    .lobby .plate-links a { font-size: 17px; }
+    .lobby .visitors { font-size: 14.5px; }
+    .lobby .note { padding: 18px; }
+    .lobby .note h2 { font-size: 19px; }
+    .lobby .note p { font-size: 15.5px; }
+    .board-news button { grid-template-columns: 64px 1fr; font-size: 15.5px; }
+    .lobby .board-news time { font-size: 14px; }
+    .board-directory button { font-size: 14.5px; }
+    .board-diy { font-size: 15.5px; }
+}
